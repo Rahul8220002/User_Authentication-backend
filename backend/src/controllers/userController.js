@@ -78,7 +78,7 @@ const login = async (req, res) => {
     });
   }
   const passwordMatch = await user.correntpassword(password);
-  if (passwordMatch) {
+  if (!passwordMatch) {
     return res.status(401).json({
       message: "email and passsword invaild",
       sucess: false,
